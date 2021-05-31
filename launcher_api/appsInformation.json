@@ -1,0 +1,37 @@
+[
+  {
+  "projectName": "教育訓練",
+  "appName":"教育訓練語音Service",
+  "lastVersion": "0.1.0",
+  "packageName":"com.leapsy.dspotterserviceforeducationtraining",
+  "downloadPath": "http://192.168.1.190:5001/download/apk"
+  },
+  {
+    "projectName": "教育訓練",
+    "appName":"教育訓練",
+    "lastVersion": "0.1.0",
+    "packageName":"com.leapsy.education_and_training",
+    "downloadPath": ""
+  },
+  {
+    "projectName": "Thermal",
+    "appName":"熱像偵測",
+    "lastVersion": "1.0",
+    "packageName":"com.leapsy.thermal",
+    "downloadPath": ""
+  },
+  {
+    "projectName": "環控",
+    "appName":"EnvironmentSysteem",
+    "lastVersion": "1.1",
+    "packageName":"com.Leapsy.EnvironmentSystem",
+    "downloadPath": ""
+  },
+  {
+    "projectName": "Android Launcher",
+    "appName":"launcher Fii",
+    "lastVersion": "1",
+    "packageName":"com.leapsy.leapsylauncherfiinew",
+    "downloadPath": ""
+  }
+]

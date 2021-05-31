@@ -1,0 +1,7 @@
+[{
+  "_id": {
+    "$oid": "5fa0eeaf2eb452ca0ebf3f05"
+  },
+  "last_version": "20201103",
+  "download_path": "http://192.168.1.190:5001/download/apk"
+}]

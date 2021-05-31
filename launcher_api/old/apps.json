@@ -1,0 +1,149 @@
+[
+    {
+        "appName": "Thermal",
+        "id": 0,
+        "appButtonName": "ThermalButton",
+        "appState": 2,
+        "multiLanguageKey": "thermal",
+        "packageName": "com.leapsy.thermal"
+    },
+    {
+        "appName": "Settings",
+        "id": 1,
+        "appButtonName": "SettingButton",
+        "appState": 2,
+        "multiLanguageKey": "setting_main",
+        "packageName": "com.google.android.youtube"
+    },
+    {
+        "appName": "File Browser",
+        "id": 2,
+        "appButtonName": "FileBrowserButton",
+        "appState": 2,
+        "multiLanguageKey": "file_browser",
+        "packageName": "com.leapsy.filebrowser"
+    },
+    {
+        "appName": "Camera",
+        "id": 3,
+        "appButtonName": "CameraButton",
+        "appState": 2,
+        "multiLanguageKey": "leapsy_camera",
+        "packageName": "com.leapsy.camera"
+    },
+    {
+        "appName": "Album",
+        "id": 4,
+        "appButtonName": "AlbumButton",
+        "appState": 2,
+        "multiLanguageKey": "leapsy_album",
+        "packageName": "com.leapsy.album"
+    },
+    {
+        "appName": "Web Browser",
+        "id": 5,
+        "appButtonName": "WebBrowerButton",
+        "appState": 2,
+        "multiLanguageKey": "web_browser",
+        "packageName": "com.leapsy.webbrowser"
+    },
+    {
+        "appName": "Programs",
+        "id": 6,
+        "appButtonName": "ProgramsButton",
+        "appState": 2,
+        "multiLanguageKey": "more",
+        "packageName": ""
+    },
+    {
+        "appName": "ThroneAR",
+        "id": 7,
+        "appButtonName": "ThroneButton",
+        "appState": 1,
+        "multiLanguageKey": "throne",
+        "packageName": "com.lepay.thronear"
+    },
+    {
+        "appName": "Update",
+        "id": 8,
+        "appButtonName": "AppUpdaterButton",
+        "appState": 2,
+        "multiLanguageKey": "sw_update",
+        "packageName": "com.leapsy.update"
+    },
+    {
+        "appName": "HUD3d",
+        "id": 9,
+        "appButtonName": "Hud3dButton",
+        "appState": 1,
+        "multiLanguageKey": "hud3d",
+        "packageName": "com.leapsy.hud3d"
+    },
+    {
+        "appName": "EnviromentSystem",
+        "id": 10,
+        "appButtonName": "EnviromentButton",
+        "appState": 2,
+        "multiLanguageKey": "enviroment_system",
+        "packageName": "com.leapsy.enviroment"
+    },
+    {
+        "appName": "Palace",
+        "id": 11,
+        "appButtonName": "PalaceButton",
+        "appState": 1,
+        "multiLanguageKey": "palace",
+        "packageName": "com.leapsy.Palace"
+    },
+    {
+        "appName": "FHOneHelmat",
+        "id": 12,
+        "appButtonName": "FHOneHelmatButton",
+        "appState": 1,
+        "multiLanguageKey": "fhone",
+        "packageName": "com.leapsy.FHOneHelmat"
+    },
+    {
+        "appName": "FaceRecognition",
+        "id": 13,
+        "appButtonName": "FaceRecognizeButton",
+        "appState": 1,
+        "multiLanguageKey": "face_recognition",
+        "packageName": ""
+    },
+    {
+        "appName": "Posture",
+        "id": 14,
+        "appButtonName": "PostureButton",
+        "appState": 1,
+        "multiLanguageKey": "posture",
+        "packageName": ""
+    },
+    {
+        "appName": "GestureRecognition",
+        "id": 15,
+        "appButtonName": "GestureRecognitionButton",
+        "appState": 1,
+        "multiLanguageKey": "gesture",
+        "packageName": ""
+    },
+    {
+        "appName": "CNC",
+        "id": 16,
+        "appButtonName": "CNCButton",
+        "appState": 1,
+        "multiLanguageKey": "cnc",
+        "packageName": ""
+    },
+    {
+        "appName": "Remote",
+        "id": 17,
+        "appButtonName": "RemoteButton",
+        "appState": 1,
+        "multiLanguageKey": "remote",
+        "packageName": ""
+    },
+    {
+        "isPlus": false
+    }
+]
