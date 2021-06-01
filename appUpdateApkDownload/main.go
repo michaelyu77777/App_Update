@@ -6,32 +6,46 @@ import (
 )
 
 const (
-	port      = "5005"
-	basicPath = "/appUpdate/download/"
+	port         = "63999"
+	urlBasicPath = "/appUpdate/download/"
 
 	//URL路徑
-	pathName1 = "1" // 教育訓練語音Service
-	pathName2 = "2" // 教育訓練
-	pathName3 = "3" // 熱像偵測
-	pathName4 = "4" // EnvironmentSysteem
-	pathName5 = "5" // 教育訓練語音Service
+	urlPathName1 = "1" // 教育訓練語音Service
+	urlPathName2 = "2" // 教育訓練
+	urlPathName3 = "3" // 熱像偵測
+	urlPathName4 = "4" // EnvironmentSysteem
+	urlPathName5 = "5" // 教育訓練語音Service
+	urlPathName6 = "6" // 自動點擊
 
-	// 檔名
-	fileName1 = "test1.apk" // 教育訓練語音Service
-	fileName2 = "test2.apk" // 教育訓練
-	fileName3 = "test3.apk" // 熱像偵測
-	fileName4 = "test4.apk" // EnvironmentSysteem
-	fileName5 = "test5.apk" // 教育訓練語音Service
+	// 檔案路徑與下載檔名
+	filePath1 = "apk/1/教育訓練語音Service.apk" // 教育訓練語音Service
+	fileName1 = "教育訓練語音Service.apk"
+
+	filePath2 = "apk/2/教育訓練.apk" // 教育訓練
+	fileName2 = "教育訓練.apk"
+
+	filePath3 = "apk/3/熱像偵測.apk" // 熱像偵測
+	fileName3 = "熱像偵測.apk"
+
+	filePath4 = "apk/4/EnvironmentSysteem.apk" // EnvironmentSysteem
+	fileName4 = "EnvironmentSysteem.apk"
+
+	filePath5 = "apk/5/launcher_Fii.apk" // 教育訓練語音Service
+	fileName5 = "launcher_Fii.apk"
+
+	filePath6 = "apk/6/Auto-click_Service.apk" // 自動點擊
+	fileName6 = "Auto-click_Service.apk"
 )
 
 func main() {
 
 	// 檔案一下載路徑
-	http.HandleFunc(basicPath+pathName1, downloadFile1)
-	http.HandleFunc(basicPath+pathName2, downloadFile2)
-	http.HandleFunc(basicPath+pathName3, downloadFile3)
-	http.HandleFunc(basicPath+pathName4, downloadFile4)
-	http.HandleFunc(basicPath+pathName5, downloadFile5)
+	http.HandleFunc(urlBasicPath+urlPathName1, downloadFile1)
+	http.HandleFunc(urlBasicPath+urlPathName2, downloadFile2)
+	http.HandleFunc(urlBasicPath+urlPathName3, downloadFile3)
+	http.HandleFunc(urlBasicPath+urlPathName4, downloadFile4)
+	http.HandleFunc(urlBasicPath+urlPathName5, downloadFile5)
+	http.HandleFunc(urlBasicPath+urlPathName6, downloadFile6)
 
 	// 開啟Port
 	http.ListenAndServe(":"+port, nil)
@@ -44,59 +58,41 @@ func main() {
 // 檔案一下載
 func downloadFile1(w http.ResponseWriter, r *http.Request) {
 
-	// 檔案名稱
-	// file := "delog201102.apk"
-
-	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName1)
-
-	http.ServeFile(w, r, fileName1)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName1) // 下載檔名
+	http.ServeFile(w, r, filePath1)                                          // 檔案路徑
 }
 
-// 檔案一下載
+// 檔案二下載
 func downloadFile2(w http.ResponseWriter, r *http.Request) {
 
-	// 檔案名稱
-	// file := "delog201102.apk"
-
-	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName2)
-
-	http.ServeFile(w, r, fileName2)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName2) // 下載檔名
+	http.ServeFile(w, r, filePath2)                                          // 檔案路徑
 }
 
-// 檔案一下載
+// 檔案三下載
 func downloadFile3(w http.ResponseWriter, r *http.Request) {
 
-	// 檔案名稱
-	// file := "delog201102.apk"
-
-	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName3)
-
-	http.ServeFile(w, r, fileName3)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName3) // 下載檔名
+	http.ServeFile(w, r, filePath3)                                          // 檔案路徑
 }
 
-// 檔案一下載
+// 檔案四下載
 func downloadFile4(w http.ResponseWriter, r *http.Request) {
 
-	// 檔案名稱
-	// file := "delog201102.apk"
-
-	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName4)
-
-	http.ServeFile(w, r, fileName4)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName4) // 下載檔名
+	http.ServeFile(w, r, filePath4)                                          // 檔案路徑
 }
 
-// 檔案一下載
+// 檔案五下載
 func downloadFile5(w http.ResponseWriter, r *http.Request) {
 
-	// 檔案名稱
-	// file := "delog201102.apk"
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName5) // 下載檔名
+	http.ServeFile(w, r, filePath5)                                          // 檔案路徑
+}
 
-	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName5)
+// 檔案六下載
+func downloadFile6(w http.ResponseWriter, r *http.Request) {
 
-	http.ServeFile(w, r, fileName5)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName6) // 下載檔名
+	http.ServeFile(w, r, filePath6)                                          // 檔案路徑
 }
