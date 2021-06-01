@@ -17,11 +17,11 @@ const (
 	pathName5 = "5" // 教育訓練語音Service
 
 	// 檔名
-	fileName1 = "" // 教育訓練語音Service
-	fileName2 = "" // 教育訓練
-	fileName3 = "" // 熱像偵測
-	fileName4 = "" // EnvironmentSysteem
-	fileName5 = "" // 教育訓練語音Service
+	fileName1 = "test1.apk" // 教育訓練語音Service
+	fileName2 = "test2.apk" // 教育訓練
+	fileName3 = "test3.apk" // 熱像偵測
+	fileName4 = "test4.apk" // EnvironmentSysteem
+	fileName5 = "test5.apk" // 教育訓練語音Service
 )
 
 func main() {
@@ -60,7 +60,7 @@ func downloadFile2(w http.ResponseWriter, r *http.Request) {
 	// file := "delog201102.apk"
 
 	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName1)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName2)
 
 	http.ServeFile(w, r, fileName2)
 }
@@ -72,7 +72,7 @@ func downloadFile3(w http.ResponseWriter, r *http.Request) {
 	// file := "delog201102.apk"
 
 	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName1)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName3)
 
 	http.ServeFile(w, r, fileName3)
 }
@@ -84,7 +84,7 @@ func downloadFile4(w http.ResponseWriter, r *http.Request) {
 	// file := "delog201102.apk"
 
 	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName1)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName4)
 
 	http.ServeFile(w, r, fileName4)
 }
@@ -96,7 +96,7 @@ func downloadFile5(w http.ResponseWriter, r *http.Request) {
 	// file := "delog201102.apk"
 
 	// 進行設定
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName1)
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName5)
 
 	http.ServeFile(w, r, fileName5)
 }
