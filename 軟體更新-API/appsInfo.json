@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "60b4ba7376e7705ed8fcef85"
+  },
+  "projectName": "教育訓練",
+  "appName": "教育訓練語音Service",
+  "lastVersion": "0.1.0",
+  "packageName": "com.leapsy.dspotterserviceforeducationtraining",
+  "downloadPath": "http://61.220.128.128:63999/appUpdate/download/1"
+},{
+  "_id": {
+    "$oid": "60b4ba7376e7705ed8fcef86"
+  },
+  "projectName": "教育訓練",
+  "appName": "教育訓練",
+  "lastVersion": "0.1.0",
+  "packageName": "com.leapsy.education_and_training",
+  "downloadPath": "http://61.220.128.128:63999/appUpdate/download/2"
+},{
+  "_id": {
+    "$oid": "60b4ba7376e7705ed8fcef87"
+  },
+  "projectName": "Thermal",
+  "appName": "熱像偵測",
+  "lastVersion": "1.0",
+  "packageName": "com.leapsy.thermal",
+  "downloadPath": "http://61.220.128.128:63999/appUpdate/download/3"
+},{
+  "_id": {
+    "$oid": "60b4ba7376e7705ed8fcef88"
+  },
+  "projectName": "環控",
+  "appName": "EnvironmentSysteem",
+  "lastVersion": "1.1",
+  "packageName": "com.Leapsy.EnvironmentSystem",
+  "downloadPath": "http://61.220.128.128:63999/appUpdate/download/4"
+},{
+  "_id": {
+    "$oid": "60b4ba7376e7705ed8fcef89"
+  },
+  "projectName": "Android_Launcher",
+  "appName": "launcher_Fii",
+  "lastVersion": "1",
+  "packageName": "com.leapsy.leapsylauncherfiinew",
+  "downloadPath": "http://61.220.128.128:63999/appUpdate/download/5"
+},{
+  "_id": {
+    "$oid": "60b7256f9251815d2cd8d940"
+  },
+  "projectName": "自動點擊",
+  "appName": "Auto-click_Service",
+  "lastVersion": "'1.0",
+  "packageName": "com.leapsy.autoclickservice",
+  "downloadPath": "http://61.220.128.128:63999/appUpdate/download/6"
+}]
