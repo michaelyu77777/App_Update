@@ -186,7 +186,14 @@ func getAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.C
 
 	result := mongoDB.FindAllAppsInfoByProjectNameAndAppName()
 
-	ginContextPointer.JSON(http.StatusOK, result)
+	//包成回給前端的格式
+	myResult := records.AppsInfoResponse{
+		Code:    "200",
+		Message: "",
+		Data:    result,
+	}
+
+	ginContextPointer.JSON(http.StatusOK, myResult)
 
 	logings.SendLog(
 		[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
@@ -242,7 +249,15 @@ func getAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Cont
 	}
 	result := mongoDB.FindAppsInfoByProjectNameAndAppName(parametersProjectName, parametersAppName)
 
-	ginContextPointer.JSON(http.StatusOK, result)
+	// 包成回給前端的格式
+
+	myResult := records.AppsInfoResponse{
+		Code:    "200",
+		Message: "",
+		Data:    result,
+	}
+
+	ginContextPointer.JSON(http.StatusOK, myResult)
 
 	logings.SendLog(
 		[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
