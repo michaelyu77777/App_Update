@@ -50,19 +50,19 @@ func (eCAPIServer *ECAPIServer) start() {
 
 	enginePointer := gin.Default()
 
-	enginePointer.GET(
-		`/record`,
-		func(ginContextPointer *gin.Context) {
-			getRecordAPIHandler(eCAPIServer, ginContextPointer)
-		},
-	)
+	// enginePointer.GET(
+	// 	`/record`,
+	// 	func(ginContextPointer *gin.Context) {
+	// 		getRecordAPIHandler(eCAPIServer, ginContextPointer)
+	// 	},
+	// )
 
-	enginePointer.GET(
-		`/records/:year/:month/:day`,
-		func(ginContextPointer *gin.Context) {
-			getRecordsDailyAPIHandler(eCAPIServer, ginContextPointer)
-		},
-	)
+	// enginePointer.GET(
+	// 	`/records/:year/:month/:day`,
+	// 	func(ginContextPointer *gin.Context) {
+	// 		getRecordsDailyAPIHandler(eCAPIServer, ginContextPointer)
+	// 	},
+	// )
 
 	// 取得所有 apps info
 	enginePointer.GET(
