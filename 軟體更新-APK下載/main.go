@@ -16,6 +16,8 @@ const (
 	urlPathName4 = "4" // EnvironmentSysteem
 	urlPathName5 = "5" // 教育訓練語音Service
 	urlPathName6 = "6" // 自動點擊
+	urlPathName7 = "7" // expertglass (專家系統眼鏡端)
+	urlPathName8 = "8" // expertpad (專家系統平板端)
 
 	// 檔案路徑與下載檔名
 	filePath1 = "apk/1/教育訓練語音Service.apk" // 教育訓練語音Service
@@ -35,6 +37,12 @@ const (
 
 	filePath6 = "apk/6/Auto-click_Service.apk" // 自動點擊
 	fileName6 = "Auto-click_Service.apk"
+
+	filePath7 = "apk/7/expertglass.apk" // expertglass (專家系統眼鏡端)
+	fileName7 = "expertglass.apk"
+
+	filePath8 = "apk/8/expertpad.apk" // expertpad (專家系統平板端)
+	fileName8 = "expertpad.apk"
 )
 
 func main() {
@@ -46,6 +54,8 @@ func main() {
 	http.HandleFunc(urlBasicPath+urlPathName4, downloadFile4)
 	http.HandleFunc(urlBasicPath+urlPathName5, downloadFile5)
 	http.HandleFunc(urlBasicPath+urlPathName6, downloadFile6)
+	http.HandleFunc(urlBasicPath+urlPathName7, downloadFile7)
+	http.HandleFunc(urlBasicPath+urlPathName8, downloadFile8)
 
 	// 開啟Port
 	http.ListenAndServe(":"+port, nil)
@@ -95,4 +105,18 @@ func downloadFile6(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Disposition", "attachment; filename="+fileName6) // 下載檔名
 	http.ServeFile(w, r, filePath6)                                          // 檔案路徑
+}
+
+// 檔案七下載
+func downloadFile7(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName7) // 下載檔名
+	http.ServeFile(w, r, filePath7)                                          // 檔案路徑
+}
+
+// 檔案八下載
+func downloadFile8(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName8) // 下載檔名
+	http.ServeFile(w, r, filePath8)                                          // 檔案路徑
 }
