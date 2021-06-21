@@ -49,25 +49,7 @@
   },
   "projectName": "自動點擊",
   "appName": "Auto-click_Service",
-  "lastVersion": "1.0",
+  "lastVersion": "'1.0",
   "packageName": "com.leapsy.autoclickservice",
   "downloadPath": "http://61.220.128.128:63999/appUpdate/download/6"
-},{
-  "_id": {
-    "$oid": "60cff977772d8c51c4e2fc9b"
-  },
-  "projectName": "Expert",
-  "appName": "expertglass",
-  "lastVersion": "1.2",
-  "packageName": "com.leapsy.experterglass",
-  "downloadPath": "http://61.220.128.128:63999/appUpdate/download/7"
-},{
-  "_id": {
-    "$oid": "60cff9b4772d8c51c4e2fc9c"
-  },
-  "projectName": "Expert",
-  "appName": "expertpad",
-  "lastVersion": "1.2",
-  "packageName": "com.leapsy.experterpad",
-  "downloadPath": "http://61.220.128.128:63999/appUpdate/download/8"
 }]
