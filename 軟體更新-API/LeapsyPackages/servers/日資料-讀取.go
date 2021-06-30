@@ -345,7 +345,7 @@ func postAuthenticationAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *g
 		// 包成回給前端的格式
 		myResult := records.APIResponse{
 			IsSuccess: false,
-			Results:   "取參數錯誤,請確認參數欄位是否完整",
+			Results:   "驗證失敗",
 		}
 
 		// 回應給前端
