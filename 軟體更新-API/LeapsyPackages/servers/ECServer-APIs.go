@@ -81,6 +81,14 @@ func (eCAPIServer *ECAPIServer) start() {
 		},
 	)
 
+	//驗證
+	enginePointer.POST(
+		`/appsUpdate/authentication`,
+		func(ginContextPointer *gin.Context) {
+			postAuthenticationAPIHandler(eCAPIServer, ginContextPointer)
+		},
+	)
+
 	// enginePointer.GET(
 	// 	`/records/:year/:month`,
 	// 	func(ginContextPointer *gin.Context) {
@@ -159,3 +167,4 @@ func (eCAPIServer *ECAPIServer) stop() {
 	)
 
 }
+

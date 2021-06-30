@@ -14,11 +14,17 @@ type AppsInfo struct {
 	DownloadPath string //下載URL
 }
 
-// 包成回給前端的格式
+// 包成回給前端<取AppsInfo格式>
 type AppsInfoResponse struct {
 	Code    string     `json:"code"`    //錯誤代碼
 	Message string     `json:"message"` //錯誤訊息
 	Data    []AppsInfo `json:"data"`    //查詢結果
+}
+
+// 回給前端<一般格式>
+type APIResponse struct {
+	IsSuccess bool   `json:"isSuccess"` //錯誤代碼
+	Results   string `json:"results"`   //錯誤訊息
 }
 
 // PrimitiveM - 轉成primitive.M

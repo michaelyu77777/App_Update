@@ -269,3 +269,97 @@ func getAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Cont
 		0,
 	)
 }
+
+// 驗證
+func postAuthenticationAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Context) {
+
+	type Parameters struct {
+		UserID       string `form:"userID" json:"userID" binding:"required"`
+		UserPassword string `form:"userPassword" json:"userPassword" binding:"required"`
+		DeviceID     string `form:"deviceID" json:"deviceID" binding:"required"`
+		DeviceBrand  string `form:"deviceBrand" json:"deviceBrand" binding:"required"`
+	}
+
+	var parameters Parameters
+
+	bindJSONError := ginContextPointer.ShouldBindJSON(&parameters)
+
+	bindURIError := ginContextPointer.ShouldBindUri(&parameters)
+
+	defaultArgs :=
+		append(
+			network.GetAliasAddressPair(
+				fmt.Sprintf(`%s:%d`,
+					eCAPIServer.GetConfigValueOrPanic(`host`),
+					eCAPIServer.GetConfigPositiveIntValueOrPanic(`port`),
+				),
+			),
+			ginContextPointer.ClientIP(),
+			ginContextPointer.FullPath(),
+			parameters,
+		)
+
+	logings.SendLog(
+		[]string{`%s %s 接受 %s 請求 %s %+v `},
+		defaultArgs,
+		nil,
+		0,
+	)
+
+	parametersUserID := parameters.UserID
+	parametersUserPassword := parameters.UserPassword
+	parametersDeviceID := parameters.DeviceID
+	parametersDeviceBrand := parameters.DeviceBrand
+
+	fmt.Println("測試：已取得參數 parametersUserID=", parametersUserID, ",parametersUserPassword=", parametersUserPassword, ",parametersDeviceID=", parametersDeviceID, ",parametersDeviceBrand=", parametersDeviceBrand)
+
+	// 若順利取出 則進行驗證
+	if bindJSONError == nil && bindURIError == nil {
+		fmt.Println("取參數正確")
+
+		// 去資料庫查詢
+		// result := mongoDB.FindAppsInfoByProjectNameAndAppName(parametersProjectName, parametersAppName)
+
+		// 包成回給前端的格式
+		myResult := records.APIResponse{
+			IsSuccess: true,
+			Results:   "",
+		}
+
+		// 回應給前端
+		ginContextPointer.JSON(http.StatusOK, myResult)
+
+		logings.SendLog(
+			[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
+			append(
+				defaultArgs,
+				// results,
+			),
+			nil,
+			0,
+		)
+
+	} else if bindJSONError != nil {
+		fmt.Println("取參數錯誤,錯誤訊息:bindJSONError=", bindJSONError, ",bindJSONError=", bindURIError)
+
+		// 包成回給前端的格式
+		myResult := records.APIResponse{
+			IsSuccess: false,
+			Results:   "取參數錯誤,請確認參數欄位是否完整",
+		}
+
+		// 回應給前端
+		ginContextPointer.JSON(http.StatusNotFound, myResult)
+
+		logings.SendLog(
+			[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
+			append(
+				defaultArgs,
+				// results,
+			),
+			nil,
+			0,
+		)
+	}
+
+}
