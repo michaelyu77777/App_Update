@@ -237,7 +237,7 @@ func (mongoDB *MongoDB) findHourlyRecords(filter primitive.M, opts ...*options.F
 	return // 回傳
 }
 
-// 執行尋找符合appinfo
+// 查找[資料庫-軟體更新]appsinfo(軟體資訊)
 func (mongoDB *MongoDB) findAppsInfo(filter primitive.M, opts ...*options.FindOptions) (results []records.AppsInfo) {
 
 	mongoClientPointer := mongoDB.Connect() // 資料庫指標
@@ -268,8 +268,9 @@ func (mongoDB *MongoDB) findAppsInfo(filter primitive.M, opts ...*options.FindOp
 
 		hourlyRWMutex.RUnlock() // 讀解鎖
 
+		// log 紀錄有查詢動作
 		logings.SendLog(
-			[]string{`%s %s 查找 Apps Info %+v `},
+			[]string{`%s %s 查找資料庫-軟體更新 %+v `},
 			append(defaultArgs, filter),
 			findError,
 			logrus.ErrorLevel,
@@ -281,14 +282,15 @@ func (mongoDB *MongoDB) findAppsInfo(filter primitive.M, opts ...*options.FindOp
 
 		defer cursor.Close(context.TODO()) // 記得關閉
 
-		for cursor.Next(context.TODO()) { // 針對每一紀錄
+		for cursor.Next(context.TODO()) { // 拜訪每筆查詢
 
 			var appsInfo records.AppsInfo
 
-			cursorDecodeError := cursor.Decode(&appsInfo) // 解析紀錄
+			cursorDecodeError := cursor.Decode(&appsInfo) // 解析單筆結果，放到appsInfo變數中
 
+			// log 針對查出的每筆紀錄寫log
 			logings.SendLog(
-				[]string{`%s %s 取得Apps Info記錄 %+v `},
+				[]string{`%s %s 取得資料庫-軟體更新 %+v `},
 				append(defaultArgs, appsInfo),
 				cursorDecodeError,
 				logrus.ErrorLevel,
@@ -300,13 +302,14 @@ func (mongoDB *MongoDB) findAppsInfo(filter primitive.M, opts ...*options.FindOp
 
 			// appsInfo.Time = appsInfo.Time.Local() // 儲存為本地時間格式
 
-			results = append(results, appsInfo) // 儲存紀錄
+			results = append(results, appsInfo) // 將單筆查詢結果，加入到results結果中
 		}
 
-		cursorErrError := cursor.Err() // 游標錯誤
+		cursorErrError := cursor.Err() // 結果游標錯誤
 
+		// log 紀錄有查詢動作
 		logings.SendLog(
-			[]string{`%s %s 查找AppsInfo遊標運作`},
+			[]string{`%s %s 查找資料庫-軟體資訊 游標`},
 			defaultArgs,
 			cursorErrError,
 			logrus.ErrorLevel,
@@ -316,8 +319,9 @@ func (mongoDB *MongoDB) findAppsInfo(filter primitive.M, opts ...*options.FindOp
 			return // 回傳
 		}
 
+		// log 紀錄有查詢動作
 		logings.SendLog(
-			[]string{`%s %s 取得AppsInfo %+v `},
+			[]string{`%s %s 取得資料庫-軟體更新 %+v `},
 			append(defaultArgs, results),
 			nil,
 			0,

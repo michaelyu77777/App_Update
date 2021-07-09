@@ -46,7 +46,7 @@ func (mongoDB *MongoDB) Connect() (returnMongoClientPointer *mongo.Client) {
 		mongoDB.GetConfigPositiveIntValueOrPanic(`port`),
 	)
 
-	network.SetAddressAlias(address, `環控歷史紀錄資料庫`) // 設定預設主機別名
+	network.SetAddressAlias(address, `軟體更新資料庫`) // 設定預設主機別名
 
 	connectionString := fmt.Sprintf(
 		`mongodb://%s`,

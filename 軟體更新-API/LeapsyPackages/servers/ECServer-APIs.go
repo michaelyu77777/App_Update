@@ -89,6 +89,15 @@ func (eCAPIServer *ECAPIServer) start() {
 		},
 	)
 
+	// 驗證並取得所有 apps info
+	enginePointer.POST(
+		`/appsUpdate/postAllAppsInfo`,
+		func(ginContextPointer *gin.Context) {
+			postAllAppsInfoAPIHandler(eCAPIServer, ginContextPointer)
+		},
+	)
+
+
 	// enginePointer.GET(
 	// 	`/records/:year/:month`,
 	// 	func(ginContextPointer *gin.Context) {
