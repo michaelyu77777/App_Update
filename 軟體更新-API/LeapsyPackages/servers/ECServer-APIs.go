@@ -65,29 +65,29 @@ func (eCAPIServer *ECAPIServer) start() {
 	// )
 
 	// 取得所有 apps info
-	enginePointer.GET(
-		//`/appsUpdate/appsInfo/all`,
-		`/appsUpdate/allAppsInfo`,
-		func(ginContextPointer *gin.Context) {
-			getAllAppsInfoAPIHandler(eCAPIServer, ginContextPointer)
-		},
-	)
+	// enginePointer.GET(
+	// 	//`/appsUpdate/appsInfo/all`,
+	// 	`/appsUpdate/allAppsInfo`,
+	// 	func(ginContextPointer *gin.Context) {
+	// 		getAllAppsInfoAPIHandler(eCAPIServer, ginContextPointer)
+	// 	},
+	// )
 
 	// 取得 app info
-	enginePointer.GET(
-		`/appsUpdate/appsInfo/:projectName/:appName`,
-		func(ginContextPointer *gin.Context) {
-			getAppsInfoAPIHandler(eCAPIServer, ginContextPointer)
-		},
-	)
+	// enginePointer.GET(
+	// 	`/appsUpdate/appsInfo/:projectName/:appName`,
+	// 	func(ginContextPointer *gin.Context) {
+	// 		getAppsInfoAPIHandler(eCAPIServer, ginContextPointer)
+	// 	},
+	// )
 
 	//驗證
-	enginePointer.POST(
-		`/appsUpdate/authentication`,
-		func(ginContextPointer *gin.Context) {
-			postAuthenticationAPIHandler(eCAPIServer, ginContextPointer)
-		},
-	)
+	// enginePointer.POST(
+	// 	`/appsUpdate/authentication`,
+	// 	func(ginContextPointer *gin.Context) {
+	// 		postAuthenticationAPIHandler(eCAPIServer, ginContextPointer)
+	// 	},
+	// )
 
 	// 驗證並取得所有 apps info
 	enginePointer.POST(
@@ -96,7 +96,6 @@ func (eCAPIServer *ECAPIServer) start() {
 			postAllAppsInfoAPIHandler(eCAPIServer, ginContextPointer)
 		},
 	)
-
 
 	// enginePointer.GET(
 	// 	`/records/:year/:month`,
@@ -176,4 +175,3 @@ func (eCAPIServer *ECAPIServer) stop() {
 	)
 
 }
-
