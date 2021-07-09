@@ -1,5 +1,0 @@
-time="2021-06-02T11:03:36+08:00" level=panic msg="參數更新時間(Date) 轉成時間 失敗: 非環控系統時間格式 ^\\d{4}/\\d{2}/\\d{2}\\s\\d{2}:\\d{2}:\\d{2}$" source="logings/logings.go:215"
-time="2021-06-02T11:09:04+08:00" level=panic msg="設定檔 config.ini 設定失敗: [ databases.MongoDB ] alert-table" source="configurations/configurations.go:96"
-time="2021-06-02T11:10:34+08:00" level=panic msg="設定檔 config.ini 設定失敗: [ databases.ECSDB ] table" source="configurations/configurations.go:96"
-time="2021-06-02T11:12:14+08:00" level=panic msg="設定檔 config.ini 設定失敗: [ databases.ECSDB ] table" source="configurations/configurations.go:96"
-time="2021-06-02T11:14:37+08:00" level=panic msg="設定檔 config.ini 設定失敗: [ databases.ECSDB ] table" source="configurations/configurations.go:96"
