@@ -155,215 +155,215 @@ func getRecordsDailyAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.
 }
 
 //取得所有apps info
-func getAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Context) {
-	type Parameters struct {
-	}
+// func getAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Context) {
+// 	type Parameters struct {
+// 	}
 
-	var parameters Parameters
+// 	var parameters Parameters
 
-	// bindJSONError := ginContextPointer.ShouldBindJSON(&parameters)
+// 	// bindJSONError := ginContextPointer.ShouldBindJSON(&parameters)
 
-	// bindURIError := ginContextPointer.ShouldBindUri(&parameters)
+// 	// bindURIError := ginContextPointer.ShouldBindUri(&parameters)
 
-	defaultArgs :=
-		append(
-			network.GetAliasAddressPair(
-				fmt.Sprintf(`%s:%d`,
-					eCAPIServer.GetConfigValueOrPanic(`host`),
-					eCAPIServer.GetConfigPositiveIntValueOrPanic(`port`),
-				),
-			),
-			ginContextPointer.ClientIP(),
-			ginContextPointer.FullPath(),
-			parameters,
-		)
+// 	defaultArgs :=
+// 		append(
+// 			network.GetAliasAddressPair(
+// 				fmt.Sprintf(`%s:%d`,
+// 					eCAPIServer.GetConfigValueOrPanic(`host`),
+// 					eCAPIServer.GetConfigPositiveIntValueOrPanic(`port`),
+// 				),
+// 			),
+// 			ginContextPointer.ClientIP(),
+// 			ginContextPointer.FullPath(),
+// 			parameters,
+// 		)
 
-	logings.SendLog(
-		[]string{`%s %s 接受 %s 請求 %s %+v `},
-		defaultArgs,
-		nil,
-		0,
-	)
+// 	logings.SendLog(
+// 		[]string{`%s %s 接受 %s 請求 %s %+v `},
+// 		defaultArgs,
+// 		nil,
+// 		0,
+// 	)
 
-	result := mongoDB.FindAllAppsInfoByProjectNameAndAppName()
+// 	result := mongoDB.FindAllAppsInfoByProjectNameAndAppName()
 
-	//包成回給前端的格式
-	myResult := records.AppsInfoResponse{
-		Code:    "200",
-		Message: "",
-		Data:    result,
-	}
+// 	//包成回給前端的格式
+// 	myResult := records.AppsInfoResponse{
+// 		Code:    "200",
+// 		Message: "",
+// 		Data:    result,
+// 	}
 
-	ginContextPointer.JSON(http.StatusOK, myResult)
+// 	ginContextPointer.JSON(http.StatusOK, myResult)
 
-	logings.SendLog(
-		[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
-		append(
-			defaultArgs,
-			result,
-		),
-		nil,
-		0,
-	)
-}
+// 	logings.SendLog(
+// 		[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
+// 		append(
+// 			defaultArgs,
+// 			result,
+// 		),
+// 		nil,
+// 		0,
+// 	)
+// }
 
 // 取得指定apps info
-func getAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Context) {
+// func getAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Context) {
 
-	type Parameters struct {
-		ProjectName string `uri:"projectName" json:"projectName"`
-		AppName     string `uri:"appName" json:"appName"`
-	}
+// 	type Parameters struct {
+// 		ProjectName string `uri:"projectName" json:"projectName"`
+// 		AppName     string `uri:"appName" json:"appName"`
+// 	}
 
-	var parameters Parameters
+// 	var parameters Parameters
 
-	bindJSONError := ginContextPointer.ShouldBindJSON(&parameters)
+// 	bindJSONError := ginContextPointer.ShouldBindJSON(&parameters)
 
-	bindURIError := ginContextPointer.ShouldBindUri(&parameters)
+// 	bindURIError := ginContextPointer.ShouldBindUri(&parameters)
 
-	defaultArgs :=
-		append(
-			network.GetAliasAddressPair(
-				fmt.Sprintf(`%s:%d`,
-					eCAPIServer.GetConfigValueOrPanic(`host`),
-					eCAPIServer.GetConfigPositiveIntValueOrPanic(`port`),
-				),
-			),
-			ginContextPointer.ClientIP(),
-			ginContextPointer.FullPath(),
-			parameters,
-		)
+// 	defaultArgs :=
+// 		append(
+// 			network.GetAliasAddressPair(
+// 				fmt.Sprintf(`%s:%d`,
+// 					eCAPIServer.GetConfigValueOrPanic(`host`),
+// 					eCAPIServer.GetConfigPositiveIntValueOrPanic(`port`),
+// 				),
+// 			),
+// 			ginContextPointer.ClientIP(),
+// 			ginContextPointer.FullPath(),
+// 			parameters,
+// 		)
 
-	logings.SendLog(
-		[]string{`%s %s 接受 %s 請求 %s %+v `},
-		defaultArgs,
-		nil,
-		0,
-	)
+// 	logings.SendLog(
+// 		[]string{`%s %s 接受 %s 請求 %s %+v `},
+// 		defaultArgs,
+// 		nil,
+// 		0,
+// 	)
 
-	parametersProjectName := parameters.ProjectName
-	parametersAppName := parameters.AppName
+// 	parametersProjectName := parameters.ProjectName
+// 	parametersAppName := parameters.AppName
 
-	fmt.Println("測試：已取得參數parametersProjectName=", parametersProjectName, "parametersAppName=", parametersAppName)
-	if bindJSONError == nil && bindURIError == nil {
+// 	fmt.Println("測試：已取得參數parametersProjectName=", parametersProjectName, "parametersAppName=", parametersAppName)
+// 	if bindJSONError == nil && bindURIError == nil {
 
-	}
-	result := mongoDB.FindAppsInfoByProjectNameAndAppName(parametersProjectName, parametersAppName)
+// 	}
+// 	result := mongoDB.FindAppsInfoByProjectNameAndAppName(parametersProjectName, parametersAppName)
 
-	// 包成回給前端的格式
+// 	// 包成回給前端的格式
 
-	myResult := records.AppsInfoResponse{
-		Code:    "200",
-		Message: "",
-		Data:    result,
-	}
+// 	myResult := records.AppsInfoResponse{
+// 		Code:    "200",
+// 		Message: "",
+// 		Data:    result,
+// 	}
 
-	ginContextPointer.JSON(http.StatusOK, myResult)
+// 	ginContextPointer.JSON(http.StatusOK, myResult)
 
-	logings.SendLog(
-		[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
-		append(
-			defaultArgs,
-			result,
-		),
-		nil,
-		0,
-	)
-}
+// 	logings.SendLog(
+// 		[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
+// 		append(
+// 			defaultArgs,
+// 			result,
+// 		),
+// 		nil,
+// 		0,
+// 	)
+// }
 
 // 驗證
-func postAuthenticationAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Context) {
+// func postAuthenticationAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Context) {
 
-	type Parameters struct {
-		UserID       string `form:"userID" json:"userID" binding:"required"`
-		UserPassword string `form:"userPassword" json:"userPassword" binding:"required"`
-		DeviceID     string `form:"deviceID" json:"deviceID" binding:"required"`
-		DeviceBrand  string `form:"deviceBrand" json:"deviceBrand" binding:"required"`
-	}
+// 	type Parameters struct {
+// 		UserID       string `form:"userID" json:"userID" binding:"required"`
+// 		UserPassword string `form:"userPassword" json:"userPassword" binding:"required"`
+// 		DeviceID     string `form:"deviceID" json:"deviceID" binding:"required"`
+// 		DeviceBrand  string `form:"deviceBrand" json:"deviceBrand" binding:"required"`
+// 	}
 
-	var parameters Parameters
+// 	var parameters Parameters
 
-	bindJSONError := ginContextPointer.ShouldBindJSON(&parameters)
+// 	bindJSONError := ginContextPointer.ShouldBindJSON(&parameters)
 
-	bindURIError := ginContextPointer.ShouldBindUri(&parameters)
+// 	bindURIError := ginContextPointer.ShouldBindUri(&parameters)
 
-	defaultArgs :=
-		append(
-			network.GetAliasAddressPair(
-				fmt.Sprintf(`%s:%d`,
-					eCAPIServer.GetConfigValueOrPanic(`host`),
-					eCAPIServer.GetConfigPositiveIntValueOrPanic(`port`),
-				),
-			),
-			ginContextPointer.ClientIP(),
-			ginContextPointer.FullPath(),
-			parameters,
-		)
+// 	defaultArgs :=
+// 		append(
+// 			network.GetAliasAddressPair(
+// 				fmt.Sprintf(`%s:%d`,
+// 					eCAPIServer.GetConfigValueOrPanic(`host`),
+// 					eCAPIServer.GetConfigPositiveIntValueOrPanic(`port`),
+// 				),
+// 			),
+// 			ginContextPointer.ClientIP(),
+// 			ginContextPointer.FullPath(),
+// 			parameters,
+// 		)
 
-	logings.SendLog(
-		[]string{`%s %s 接受 %s 請求 %s %+v `},
-		defaultArgs,
-		nil,
-		0,
-	)
+// 	logings.SendLog(
+// 		[]string{`%s %s 接受 %s 請求 %s %+v `},
+// 		defaultArgs,
+// 		nil,
+// 		0,
+// 	)
 
-	parametersUserID := parameters.UserID
-	parametersUserPassword := parameters.UserPassword
-	parametersDeviceID := parameters.DeviceID
-	parametersDeviceBrand := parameters.DeviceBrand
+// 	parametersUserID := parameters.UserID
+// 	parametersUserPassword := parameters.UserPassword
+// 	parametersDeviceID := parameters.DeviceID
+// 	parametersDeviceBrand := parameters.DeviceBrand
 
-	fmt.Println("測試：已取得參數 parametersUserID=", parametersUserID, ",parametersUserPassword=", parametersUserPassword, ",parametersDeviceID=", parametersDeviceID, ",parametersDeviceBrand=", parametersDeviceBrand)
+// 	fmt.Println("測試：已取得參數 parametersUserID=", parametersUserID, ",parametersUserPassword=", parametersUserPassword, ",parametersDeviceID=", parametersDeviceID, ",parametersDeviceBrand=", parametersDeviceBrand)
 
-	// 若順利取出 則進行驗證
-	if bindJSONError == nil && bindURIError == nil {
-		fmt.Println("取參數正確")
+// 	// 若順利取出 則進行驗證
+// 	if bindJSONError == nil && bindURIError == nil {
+// 		fmt.Println("取參數正確")
 
-		// 去資料庫查詢
-		// result := mongoDB.FindAppsInfoByProjectNameAndAppName(parametersProjectName, parametersAppName)
+// 		// 去資料庫查詢
+// 		// result := mongoDB.FindAppsInfoByProjectNameAndAppName(parametersProjectName, parametersAppName)
 
-		// 包成回給前端的格式
-		myResult := records.APIResponse{
-			IsSuccess: true,
-			Results:   "",
-		}
+// 		// 包成回給前端的格式
+// 		myResult := records.APIResponse{
+// 			IsSuccess: true,
+// 			Results:   "",
+// 		}
 
-		// 回應給前端
-		ginContextPointer.JSON(http.StatusOK, myResult)
+// 		// 回應給前端
+// 		ginContextPointer.JSON(http.StatusOK, myResult)
 
-		logings.SendLog(
-			[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
-			append(
-				defaultArgs,
-				// results,
-			),
-			nil,
-			0,
-		)
+// 		logings.SendLog(
+// 			[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
+// 			append(
+// 				defaultArgs,
+// 				// results,
+// 			),
+// 			nil,
+// 			0,
+// 		)
 
-	} else if bindJSONError != nil {
-		fmt.Println("取參數錯誤,錯誤訊息:bindJSONError=", bindJSONError, ",bindJSONError=", bindURIError)
+// 	} else if bindJSONError != nil {
+// 		fmt.Println("取參數錯誤,錯誤訊息:bindJSONError=", bindJSONError, ",bindJSONError=", bindURIError)
 
-		// 包成回給前端的格式
-		myResult := records.APIResponse{
-			IsSuccess: false,
-			Results:   "驗證失敗",
-		}
+// 		// 包成回給前端的格式
+// 		myResult := records.APIResponse{
+// 			IsSuccess: false,
+// 			Results:   "驗證失敗",
+// 		}
 
-		// 回應給前端
-		ginContextPointer.JSON(http.StatusNotFound, myResult)
+// 		// 回應給前端
+// 		ginContextPointer.JSON(http.StatusNotFound, myResult)
 
-		logings.SendLog(
-			[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
-			append(
-				defaultArgs,
-				// results,
-			),
-			nil,
-			0,
-		)
-	}
+// 		logings.SendLog(
+// 			[]string{`%s %s 回應 %s 請求 %s %+v : %+v `},
+// 			append(
+// 				defaultArgs,
+// 				// results,
+// 			),
+// 			nil,
+// 			0,
+// 		)
+// 	}
 
-}
+// }
 
 // 驗證並取得所有apps info
 func postAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.Context) {
@@ -432,10 +432,15 @@ func postAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.
 
 			// 包成前端格式
 			myResult := records.AppsInfoResponse{
-				Code:    "200",
-				Message: "",
-				Data:    result,
+				IsSuccess: true,
+				Results:   "",
+				Data:      result,
 			}
+			// myResult := records.AppsInfoResponse{
+			// 	Code:    "200",
+			// 	Message: "",
+			// 	Data:    result,
+			// }
 
 			// 回應給前端
 			ginContextPointer.JSON(http.StatusOK, myResult)
@@ -459,10 +464,17 @@ func postAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.
 		fmt.Println("取參數錯誤,錯誤訊息:bindJSONError=", bindJSONError, ",bindJSONError=", bindURIError)
 
 		// 包成回給前端的格式
-		myResult := records.APIResponse{
+		myResult := records.AppsInfoResponse{
 			IsSuccess: false,
 			Results:   "驗證失敗",
+			Data:      nil,
 		}
+
+		// myResult := records.APIResponse{
+		// 	IsSuccess: false,
+		// 	Results:   "驗證失敗",
+		// 	Data:      nil,
+		// }
 
 		// 回應給前端
 		ginContextPointer.JSON(http.StatusNotFound, myResult)
