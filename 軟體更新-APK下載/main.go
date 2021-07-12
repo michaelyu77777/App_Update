@@ -10,14 +10,21 @@ const (
 	urlBasicPath = "/appUpdate/download/"
 
 	//URL路徑
-	urlPathName1 = "1" // 教育訓練語音Service
-	urlPathName2 = "2" // 教育訓練
-	urlPathName3 = "3" // 熱像偵測
-	urlPathName4 = "4" // EnvironmentSysteem
-	urlPathName5 = "5" // 教育訓練語音Service
-	urlPathName6 = "6" // 自動點擊
-	urlPathName7 = "7" // expertglass (專家系統眼鏡端)
-	urlPathName8 = "8" // expertpad (專家系統平板端)
+	urlPathName1  = "1"  // 教育訓練語音Service
+	urlPathName2  = "2"  // 教育訓練
+	urlPathName3  = "3"  // 熱像偵測
+	urlPathName4  = "4"  // EnvironmentSysteem
+	urlPathName5  = "5"  // 教育訓練語音Service
+	urlPathName6  = "6"  // 自動點擊
+	urlPathName7  = "7"  // expertglass (專家系統眼鏡端)
+	urlPathName8  = "8"  // expertpad (專家系統平板端)
+	urlPathName9  = "9"  //
+	urlPathName10 = "10" //
+	urlPathName11 = "11" //
+	urlPathName12 = "12" //
+	urlPathName13 = "13" //
+	urlPathName14 = "14" //
+	urlPathName15 = "15" //
 
 	// 檔案路徑與下載檔名
 	filePath1 = "apk/1/教育訓練語音Service.apk" // 教育訓練語音Service
@@ -43,6 +50,27 @@ const (
 
 	filePath8 = "apk/8/expertpad.apk" // expertpad (專家系統平板端)
 	fileName8 = "expertpad.apk"
+
+	filePath9 = "apk/9/test.apk" //
+	fileName9 = ""
+
+	filePath10 = "apk/10/test.apk" //
+	fileName10 = ""
+
+	filePath11 = "apk/11/test.apk" //
+	fileName11 = ""
+
+	filePath12 = "apk/12/test.apk" //
+	fileName12 = ""
+
+	filePath13 = "apk/13/test.apk" //
+	fileName13 = ""
+
+	filePath14 = "apk/14/test.apk" //
+	fileName14 = ""
+
+	filePath15 = "apk/15/test.apk" //
+	fileName15 = ""
 )
 
 func main() {
@@ -56,6 +84,13 @@ func main() {
 	http.HandleFunc(urlBasicPath+urlPathName6, downloadFile6)
 	http.HandleFunc(urlBasicPath+urlPathName7, downloadFile7)
 	http.HandleFunc(urlBasicPath+urlPathName8, downloadFile8)
+	http.HandleFunc(urlBasicPath+urlPathName9, downloadFile9)
+	http.HandleFunc(urlBasicPath+urlPathName10, downloadFile10)
+	http.HandleFunc(urlBasicPath+urlPathName11, downloadFile11)
+	http.HandleFunc(urlBasicPath+urlPathName12, downloadFile12)
+	http.HandleFunc(urlBasicPath+urlPathName13, downloadFile13)
+	http.HandleFunc(urlBasicPath+urlPathName14, downloadFile14)
+	http.HandleFunc(urlBasicPath+urlPathName15, downloadFile15)
 
 	// 開啟Port
 	http.ListenAndServe(":"+port, nil)
@@ -119,4 +154,53 @@ func downloadFile8(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Disposition", "attachment; filename="+fileName8) // 下載檔名
 	http.ServeFile(w, r, filePath8)                                          // 檔案路徑
+}
+
+// 檔案9
+func downloadFile9(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName9) // 下載檔名
+	http.ServeFile(w, r, filePath8)                                          // 檔案路徑
+}
+
+// 檔案10
+func downloadFile10(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName10) // 下載檔名
+	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+}
+
+// 檔案11
+func downloadFile11(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName11) // 下載檔名
+	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+}
+
+// 檔案12
+func downloadFile12(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName12) // 下載檔名
+	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+}
+
+// 檔案13
+func downloadFile13(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName13) // 下載檔名
+	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+}
+
+// 檔案14
+func downloadFile14(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName14) // 下載檔名
+	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+}
+
+// 檔案15
+func downloadFile15(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName15) // 下載檔名
+	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
 }
