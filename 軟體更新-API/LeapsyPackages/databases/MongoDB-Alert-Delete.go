@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"../logings"
-	"../network"
 	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
 )
 
 // deleteManyAlert - 刪除一筆警報紀錄

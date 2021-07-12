@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"../databases"
-	"../logings"
+	"leapsy.com/databases"
+	"leapsy.com/packages/logings"
 
 	"github.com/robfig/cron"
 )
@@ -17,8 +17,7 @@ import (
  * @param *databases.ECSAlertDB ecsAlertDB 警報來源資料庫
  * @param  *databases.MongoDB mongoDB 目的資料庫
  */
- 
- 
+
 func startPeriodicallyRecord(mongoDB *databases.MongoDB) {
 
 	logings.SendLog(
@@ -105,7 +104,7 @@ func startPeriodicallyRecord(mongoDB *databases.MongoDB) {
  * @param  *databases.ECSAlertDB eCSAlertDB 來源警報資料庫
  * @param  *databases.MongoDB mongoDB 目的資料庫
  */
-func stopPeriodicallyRecord( mongoDB *databases.MongoDB) {
+func stopPeriodicallyRecord(mongoDB *databases.MongoDB) {
 
 	logings.SendLog(
 		[]string{`結束 週期性記錄 `},

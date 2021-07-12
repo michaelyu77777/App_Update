@@ -1,10 +1,10 @@
 package databases
 
 import (
-	"../records"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"leapsy.com/records"
 )
 
 // findOneAndReplaceHourlyRecord - 代添小時記錄

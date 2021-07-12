@@ -10,9 +10,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 
-	"../configurations"
-	"../logings"
-	"../network"
+	"leapsy.com/packages/configurations"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
 )
 
 // ECAPIServer - 環控API伺服器

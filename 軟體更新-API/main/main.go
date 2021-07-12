@@ -3,7 +3,7 @@ package main
 import (
 	_ "github.com/denisenkom/go-mssqldb"
 
-	"./LeapsyPackages/servers"
+	"leapsy.com/servers"
 )
 
 // main - 主程式

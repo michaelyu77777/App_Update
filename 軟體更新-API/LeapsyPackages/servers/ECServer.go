@@ -1,8 +1,8 @@
 package servers
 
 import (
-	"../databases"
-	"../logings"
+	"leapsy.com/databases"
+	"leapsy.com/packages/logings"
 )
 
 // ECServer - 環控伺服器

@@ -1,7 +1,7 @@
 package databases
 
 import (
-	"../records"
+	"leapsy.com/records"
 )
 
 // insertOneSecondRecord - 加添一筆秒紀錄

@@ -8,9 +8,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 
-	"../logings"
-	"../network"
-	"../records"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
+	"leapsy.com/records"
 )
 
 // putAlertIsReadAPIHandler - 處理PUT設定警報資料已讀網頁

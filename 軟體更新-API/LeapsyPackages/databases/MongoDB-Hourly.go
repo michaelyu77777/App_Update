@@ -3,7 +3,7 @@ package databases
 import (
 	"time"
 
-	"../records"
+	"leapsy.com/records"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

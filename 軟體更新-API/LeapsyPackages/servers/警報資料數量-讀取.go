@@ -6,8 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"../logings"
-	"../network"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
 )
 
 // getAlertsCountAPIHandler - 處理GET警報數量資料網頁

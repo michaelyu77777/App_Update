@@ -6,9 +6,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"../databases"
-	"../logings"
-	"../network"
+	"leapsy.com/databases"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
 )
 
 // getRecordAPIHandler - 處理GET紀錄網頁

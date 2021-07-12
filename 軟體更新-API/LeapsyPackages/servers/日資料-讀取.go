@@ -8,10 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 
-	"../logings"
-	"../network"
-	"../records"
-	"../times"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
+	"leapsy.com/records"
+	"leapsy.com/times"
 )
 
 // getRecordsDailyAPIHandler - 處理GET一日內小時資料網頁

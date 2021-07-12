@@ -3,10 +3,10 @@ package databases
 import (
 	"fmt"
 
-	"../logings"
-	"../network"
-	"../records"
 	"github.com/sirupsen/logrus"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
+	"leapsy.com/records"
 )
 
 //  getECSRecord - 取得環控紀錄

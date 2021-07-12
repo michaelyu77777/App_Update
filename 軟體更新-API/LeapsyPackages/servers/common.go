@@ -1,7 +1,7 @@
 package servers
 
 import (
-	"../databases"
+	"leapsy.com/databases"
 )
 
 var (

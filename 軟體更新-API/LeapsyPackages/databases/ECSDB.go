@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"reflect"
 
-	"../configurations"
-	"../logings"
-	"../network"
+	"leapsy.com/packages/configurations"
+	"leapsy.com/packages/network"
 	"github.com/sirupsen/logrus"
+	"leapsy.com/packages/logings"
 )
 
 // ECSDB - 環控系統資料庫

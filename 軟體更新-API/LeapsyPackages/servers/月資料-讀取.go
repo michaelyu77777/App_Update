@@ -7,10 +7,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"../logings"
-	"../network"
-	"../records"
-	"../times"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
+	"leapsy.com/records"
+	"leapsy.com/times"
 )
 
 // getRecordsMonthlyAPIHandler - 處理GET一月內日資料網頁

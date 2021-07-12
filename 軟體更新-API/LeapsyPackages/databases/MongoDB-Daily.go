@@ -4,9 +4,9 @@ import (
 	"errors"
 	"time"
 
-	"../logings"
-	"../records"
-	"../times"
+	"leapsy.com/packages/logings"
+	"leapsy.com/records"
+	"leapsy.com/times"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

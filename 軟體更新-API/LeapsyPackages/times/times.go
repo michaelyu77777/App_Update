@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"../logings"
+	"leapsy.com/packages/logings"
 )
 
 // IsSecond - 判斷時間是否為整秒

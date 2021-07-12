@@ -4,8 +4,8 @@ import (
 	"sync"
 	"time"
 
-	"../configurations"
 	"go.mongodb.org/mongo-driver/bson"
+	"leapsy.com/packages/configurations"
 )
 
 const (

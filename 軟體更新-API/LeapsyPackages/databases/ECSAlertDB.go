@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"reflect"
 
-	"../configurations"
-	"../logings"
-	"../network"
 	"github.com/sirupsen/logrus"
+	"leapsy.com/packages/configurations"
+	"leapsy.com/packages/logings"
+	"leapsy.com/packages/network"
 )
 
 // ECSAlertDB - 環控系統警報資料庫

@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"time"
 
-	"../logings"
-	"../times"
 	"github.com/sirupsen/logrus"
+	"leapsy.com/packages/logings"
+	"leapsy.com/times"
 )
 
 // SecondRecord - 環控主機秒紀錄

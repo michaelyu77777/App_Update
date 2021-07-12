@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"reflect"
 
-	"../configurations"
-	"../network"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"leapsy.com/packages/configurations"
+	"leapsy.com/packages/network"
 )
 
 // MongoDB - 資料庫

@@ -9,8 +9,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
-	"../logings"
-	"../times"
+	"leapsy.com/packages/logings"
+	"leapsy.com/times"
 )
 
 // AlertRecord - 警報紀錄

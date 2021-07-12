@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	"../logings"
-	"../records"
-	"../times"
 	"github.com/sirupsen/logrus"
+	"leapsy.com/packages/logings"
+	"leapsy.com/records"
+	"leapsy.com/times"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
