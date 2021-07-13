@@ -10,14 +10,14 @@ const (
 	urlBasicPath = "/appUpdate/download/"
 
 	//URL路徑
-	urlPathName1  = "1"  // 教育訓練語音Service
-	urlPathName2  = "2"  // 教育訓練
-	urlPathName3  = "3"  // 熱像偵測
-	urlPathName4  = "4"  // EnvironmentSysteem
-	urlPathName5  = "5"  // 教育訓練語音Service
-	urlPathName6  = "6"  // 自動點擊
-	urlPathName7  = "7"  // expertglass (專家系統眼鏡端)
-	urlPathName8  = "8"  // expertpad (專家系統平板端)
+	urlPathName1  = "1"  //
+	urlPathName2  = "2"  //
+	urlPathName3  = "3"  //
+	urlPathName4  = "4"  //
+	urlPathName5  = "5"  //
+	urlPathName6  = "6"  //
+	urlPathName7  = "7"  //
+	urlPathName8  = "8"  //
 	urlPathName9  = "9"  //
 	urlPathName10 = "10" //
 	urlPathName11 = "11" //
@@ -27,50 +27,50 @@ const (
 	urlPathName15 = "15" //
 
 	// 檔案路徑與下載檔名
-	filePath1 = "apk/1/教育訓練語音Service.apk" // 教育訓練語音Service
-	fileName1 = "教育訓練語音Service.apk"
+	filePath1 = "apk/1/camera.apk" //
+	fileName1 = "camera.apk"
 
-	filePath2 = "apk/2/教育訓練.apk" // 教育訓練
-	fileName2 = "教育訓練.apk"
+	filePath2 = "apk/2/album.apk" //
+	fileName2 = "album.apk"
 
-	filePath3 = "apk/3/熱像偵測.apk" // 熱像偵測
-	fileName3 = "熱像偵測.apk"
+	filePath3 = "apk/3/webBrowser.apk" //
+	fileName3 = "webBrowser.apk"
 
-	filePath4 = "apk/4/EnvironmentSysteem.apk" // EnvironmentSysteem
-	fileName4 = "EnvironmentSysteem.apk"
+	filePath4 = "apk/4/throne.apk" //
+	fileName4 = "throne.apk"
 
-	filePath5 = "apk/5/launcher_Fii.apk" // 教育訓練語音Service
-	fileName5 = "launcher_Fii.apk"
+	filePath5 = "apk/5/leapsyStore.apk" //
+	fileName5 = "leapsyStore.apk"
 
-	filePath6 = "apk/6/Auto-click_Service.apk" // 自動點擊
-	fileName6 = "Auto-click_Service.apk"
+	filePath6 = "apk/6/intelligenceSystem.apk" //
+	fileName6 = "intelligenceSystem.apk"
 
-	filePath7 = "apk/7/expertglass.apk" // expertglass (專家系統眼鏡端)
-	fileName7 = "expertglass.apk"
+	filePath7 = "apk/7/environment.apk" //
+	fileName7 = "environment.apk"
 
-	filePath8 = "apk/8/expertpad.apk" // expertpad (專家系統平板端)
-	fileName8 = "expertpad.apk"
+	filePath8 = "apk/8/palace.apk" //
+	fileName8 = "palace.apk"
 
-	filePath9 = "apk/9/test.apk" //
-	fileName9 = ""
+	filePath9 = "apk/9/FH1.apk" //
+	fileName9 = "FH1.apk"
 
-	filePath10 = "apk/10/test.apk" //
-	fileName10 = ""
+	filePath10 = "apk/10/settings.apk" //
+	fileName10 = "settings.apk"
 
-	filePath11 = "apk/11/test.apk" //
-	fileName11 = ""
+	filePath11 = "apk/11/programs.apk" //
+	fileName11 = "programs.apk"
 
-	filePath12 = "apk/12/test.apk" //
-	fileName12 = ""
+	filePath12 = "apk/12/expert.apk" //
+	fileName12 = "expert.apk"
 
-	filePath13 = "apk/13/test.apk" //
-	fileName13 = ""
+	filePath13 = "apk/13/faceRecognize.apk" //
+	fileName13 = "faceRecognize.apk"
 
-	filePath14 = "apk/14/test.apk" //
-	fileName14 = ""
+	filePath14 = "apk/14/posture.apk" //
+	fileName14 = "posture.apk"
 
-	filePath15 = "apk/15/test.apk" //
-	fileName15 = ""
+	filePath15 = "apk/15/gesture.apk" //
+	fileName15 = "gesture.apk"
 )
 
 func main() {
@@ -92,16 +92,19 @@ func main() {
 	http.HandleFunc(urlBasicPath+urlPathName14, downloadFile14)
 	http.HandleFunc(urlBasicPath+urlPathName15, downloadFile15)
 
+	// 提示
+	fmt.Println("開啟Port:" + port + " 提供APK下載服務")
+
 	// 開啟Port
 	http.ListenAndServe(":"+port, nil)
-
-	// 提示
-	fmt.Println("已經開啟Port:" + port + " 提供APK下載服務")
 
 }
 
 // 檔案一下載
 func downloadFile1(w http.ResponseWriter, r *http.Request) {
+
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName1)
 
 	w.Header().Set("Content-Disposition", "attachment; filename="+fileName1) // 下載檔名
 	http.ServeFile(w, r, filePath1)                                          // 檔案路徑
