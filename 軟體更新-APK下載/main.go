@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"./logings"
+	"github.com/sirupsen/logrus"
 )
 
 const (
@@ -92,8 +95,19 @@ func main() {
 	http.HandleFunc(urlBasicPath+urlPathName14, downloadFile14)
 	http.HandleFunc(urlBasicPath+urlPathName15, downloadFile15)
 
-	// 提示
-	fmt.Println("開啟Port:" + port + " 提供APK下載服務")
+	// 啟動log紀錄
+	go logings.StartLogging()
+
+	// log
+	logings.SendLog(
+		[]string{`啟動伺服器Port %s 提供APK下載服務`},
+		[]interface{}{port},
+		nil,
+		logrus.InfoLevel,
+	)
+
+	// print
+	fmt.Println("啟動伺服器Port ", port, " 提供APK下載服務")
 
 	// 開啟Port
 	http.ListenAndServe(":"+port, nil)
@@ -103,107 +117,297 @@ func main() {
 // 檔案一下載
 func downloadFile1(w http.ResponseWriter, r *http.Request) {
 
-	//print
-	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName1)
+	fileName := fileName1
+	filePath := filePath1
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName1) // 下載檔名
-	http.ServeFile(w, r, filePath1)                                          // 檔案路徑
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案二下載
 func downloadFile2(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName2) // 下載檔名
-	http.ServeFile(w, r, filePath2)                                          // 檔案路徑
+	fileName := fileName2
+	filePath := filePath2
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案三下載
 func downloadFile3(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName3) // 下載檔名
-	http.ServeFile(w, r, filePath3)                                          // 檔案路徑
+	fileName := fileName3
+	filePath := filePath3
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案四下載
 func downloadFile4(w http.ResponseWriter, r *http.Request) {
+	fileName := fileName4
+	filePath := filePath4
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName4) // 下載檔名
-	http.ServeFile(w, r, filePath4)                                          // 檔案路徑
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案五下載
 func downloadFile5(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName5) // 下載檔名
-	http.ServeFile(w, r, filePath5)                                          // 檔案路徑
+	fileName := fileName5
+	filePath := filePath5
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案六下載
 func downloadFile6(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName6) // 下載檔名
-	http.ServeFile(w, r, filePath6)                                          // 檔案路徑
+	fileName := fileName6
+	filePath := filePath6
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案七下載
 func downloadFile7(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName7) // 下載檔名
-	http.ServeFile(w, r, filePath7)                                          // 檔案路徑
+	fileName := fileName7
+	filePath := filePath7
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案八下載
 func downloadFile8(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName8) // 下載檔名
-	http.ServeFile(w, r, filePath8)                                          // 檔案路徑
+	fileName := fileName8
+	filePath := filePath8
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案9
 func downloadFile9(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName9) // 下載檔名
-	http.ServeFile(w, r, filePath8)                                          // 檔案路徑
+	fileName := fileName9
+	filePath := filePath9
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案10
 func downloadFile10(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName10) // 下載檔名
-	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+	fileName := fileName10
+	filePath := filePath10
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案11
 func downloadFile11(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName11) // 下載檔名
-	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+	fileName := fileName11
+	filePath := filePath11
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案12
 func downloadFile12(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName12) // 下載檔名
-	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+	fileName := fileName12
+	filePath := filePath12
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案13
 func downloadFile13(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName13) // 下載檔名
-	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+	fileName := fileName13
+	filePath := filePath13
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案14
 func downloadFile14(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName14) // 下載檔名
-	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+	fileName := fileName14
+	filePath := filePath14
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
 
 // 檔案15
 func downloadFile15(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Disposition", "attachment; filename="+fileName15) // 下載檔名
-	http.ServeFile(w, r, filePath8)                                           // 檔案路徑
+	fileName := fileName15
+	filePath := filePath15
+
+	// log
+	logings.SendLog(
+		[]string{`收到HOST %s 要求路徑 %s 下載檔案 %s`},
+		[]interface{}{r.Host, r.URL, fileName},
+		nil,
+		logrus.InfoLevel,
+	)
+	//print
+	fmt.Println("收到HOST ", r.Host, " 要求路徑 ", r.URL, "下載檔案", fileName)
+
+	w.Header().Set("Content-Disposition", "attachment; filename="+fileName) // 下載檔名
+	http.ServeFile(w, r, filePath)                                          // 檔案路徑
 }
