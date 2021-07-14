@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"net/http"
 
-	"./logings"
 	"github.com/sirupsen/logrus"
+	"leapsy.com/logings"
 )
 
 const (
-	port         = "63999"
+	port = "63997" //本機測試
+	// port         = "63999" //正式
 	urlBasicPath = "/appUpdate/download/"
 
 	//URL路徑
