@@ -13,7 +13,7 @@ type AppsInfo struct {
 	AppNameJpn string `json:"appNameJpn"` //軟體名稱 日文
 	AppNameKor string `json:"appNameKor"` //軟體名稱 韓文
 
-	LastVersionCode string `json:"lastVersionCode"` //最新版本號
+	LastVersionCode int    `json:"lastVersionCode"` //最新版本號
 	LastVersionName string `json:"lastVersionName"` //最新版本名
 	PackageName     string `json:"packageName"`     //封包名稱
 	DownloadPath    string `json:"downloadPath"`    //下載APK網址
@@ -42,7 +42,7 @@ type AppsInfo struct {
 
 // 包成回給前端<取AppsInfo格式>
 type AppsInfoResponse struct {
-	IsSuccess bool     `json:"isSuccess"` //錯誤代碼
+	IsSuccess bool       `json:"isSuccess"` //錯誤代碼
 	Results   string     `json:"results"`   //錯誤訊息
 	Data      []AppsInfo `json:"data"`      //查詢結果
 }
