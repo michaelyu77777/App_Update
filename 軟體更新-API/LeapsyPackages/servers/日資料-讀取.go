@@ -418,14 +418,15 @@ func postAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.
 
 	fmt.Println("測試：已取得參數 parametersUserID=", parametersUserID, ",parametersUserPassword=", parametersUserPassword, ",parametersDeviceID=", parametersDeviceID, ",parametersDeviceBrand=", parametersDeviceBrand)
 
-	// 若順利取出 則進行驗證
+	// 若順利取出 則進行密碼驗證
 	if bindJSONError == nil && bindURIError == nil {
 
 		fmt.Println("取參數正確")
 
-		// 等待補上:驗證帳號密碼
-		if 1 == 1 {
-			// 驗證正確
+		//checkPassword(parametersUserID,parametersUserPassword)
+
+		// 密碼正確
+		if checkPassword(parametersUserID, parametersUserPassword) {
 
 			// 查資料庫
 			result := mongoDB.FindAllAppsInfoByProjectNameAndAppName()
@@ -446,7 +447,7 @@ func postAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.
 			ginContextPointer.JSON(http.StatusOK, myResult)
 
 			logings.SendLog(
-				[]string{`%s %s 回應 %s 請求 %s %+v : 查詢結果為 %+v`},
+				[]string{`%s %s 回應 %s 請求 %s %+v: 密碼正確-查詢結果為 %+v`},
 				append(
 					defaultArgs,
 					result,
@@ -456,12 +457,41 @@ func postAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.
 				0,
 			)
 		} else {
-			//驗證錯誤
+			//密碼錯誤
+			fmt.Println("取參數錯誤,錯誤訊息:bindJSONError=", bindJSONError, ",bindURIError=", bindURIError)
+
+			// 包成回給前端的格式
+			myResult := records.AppsInfoResponse{
+				IsSuccess: false,
+				Results:   "驗證失敗",
+				Data:      nil,
+			}
+
+			// myResult := records.APIResponse{
+			// 	IsSuccess: false,
+			// 	Results:   "驗證失敗",
+			// 	Data:      nil,
+			// }
+
+			// 回應給前端
+			ginContextPointer.JSON(http.StatusNotFound, myResult)
+
+			// log
+
+			logings.SendLog(
+				[]string{`%s %s 回應 %s 請求 %s %+v: 驗證失敗-帳號或密碼錯誤 `},
+				append(
+					defaultArgs,
+				),
+				nil,              // 無錯誤
+				logrus.InfoLevel, // info等級的log
+			)
 
 		}
 
 	} else if bindJSONError != nil {
-		fmt.Println("取參數錯誤,錯誤訊息:bindJSONError=", bindJSONError, ",bindJSONError=", bindURIError)
+
+		fmt.Println("取參數錯誤,錯誤訊息:bindJSONError=", bindJSONError, ",bindURIError=", bindURIError)
 
 		// 包成回給前端的格式
 		myResult := records.AppsInfoResponse{
@@ -482,13 +512,26 @@ func postAllAppsInfoAPIHandler(eCAPIServer *ECAPIServer, ginContextPointer *gin.
 		// log
 
 		logings.SendLog(
-			[]string{`%s %s 回應 %s 請求 %s %+v 驗證失敗-取參數錯誤 `},
+			[]string{`%s %s 回應 %s 請求 %s %+v: 驗證失敗-取參數錯誤(參數有少或格式錯誤), bindJSONError=%s, bindURIError=%s`},
 			append(
 				defaultArgs,
+				bindJSONError,
+				bindURIError,
 			),
 			nil,              // 無錯誤
 			logrus.InfoLevel, // info等級的log
 		)
+	}
+
+}
+
+func checkPassword(userID string, userPassword string) (result bool) {
+
+	// 愈設帳號
+	if userID == "default" && userPassword == "default" {
+		return true
+	} else {
+		return false
 	}
 
 }
